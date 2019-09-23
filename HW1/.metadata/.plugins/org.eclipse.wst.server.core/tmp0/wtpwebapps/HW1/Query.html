@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+function updatePage(){
+    var len = document.getElementById('childNum').value;
+    document.getElementById("form").remove();
+    var newForm = document.createElement("form");
+    newForm.action = "Query";
+    newForm.method = "post";
+    document.body.appendChild(newForm)
+    console.log(len);
+    for (let index = 0; index < len; index++) {
+        let input = document.createElement("input");
+        input.type = "text";
+        input.name = "children" + (index + 1) + "";
+        newForm.appendChild(document.createTextNode("Please enter the name of child number " + (index + 1)));
+        newForm.appendChild(document.createElement("br"));
+        newForm.appendChild(input);
+        newForm.appendChild(document.createElement("br"));
+    }
+    var submit = document.createElement("input");
+    submit.type = "submit";
+    submit.value = "submti query";
+    newForm.appendChild(submit);
+
+}
+</script>
+<body>
+    <form id="form">
+        <input type="text" name="" id="childNum">
+        <input type="button" onclick="updatePage()" value="Submit">
+    </form>
+</body>
+</html>

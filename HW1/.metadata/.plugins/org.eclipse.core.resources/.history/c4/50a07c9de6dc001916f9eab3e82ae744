@@ -1,0 +1,29 @@
+package part4;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Enumeration;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class InputDisplayServlet extends HttpServlet  {
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Enumeration<String> names = req.getParameterNames();
+		PrintWriter writer = resp.getWriter();
+		writer.print("<html>");
+		writer.print("<body>");
+		writer.print("use request.getParameterNames()");
+		while(names.hasMoreElements()) {
+			String paraName = names.nextElement();
+			String[] values = req.getParameterValues(paraName);
+			writer.print(paraName + " : " + Arrays.toString(values) + "</br>");
+		}
+		writer.print("</body>");
+		writer.print("</html>");
+	}
+}

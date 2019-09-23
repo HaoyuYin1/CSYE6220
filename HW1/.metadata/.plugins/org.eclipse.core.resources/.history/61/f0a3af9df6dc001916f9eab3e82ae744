@@ -1,0 +1,62 @@
+package part6;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class QueryServlet extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		PrintWriter writer = resp.getWriter();
+		writer.print("<html>");
+		writer.print("<script>\r\n" + 
+				"function updatePage(){\r\n" + 
+				"    var len = document.getElementById('childNum').value;\r\n" + 
+				"    document.getElementById('form').remove();\r\n" + 
+				"    var newForm = document.createElement('form');\r\n" + 
+				"    newForm.action = 'Query';\r\n" + 
+				"    newForm.method = 'post';\r\n" + 
+				"    document.body.appendChild(newForm)\r\n" + 
+				"    console.log(len);\r\n" + 
+				"    for (let index = 0; index < len; index++) {\r\n" + 
+				"        let input = document.createElement('input');\r\n" + 
+				"        input.type = 'text';\r\n" + 
+				"        input.name = 'children';\r\n" + 
+				"        newForm.appendChild(document.createTextNode('Please enter the name of child number ' + (index + 1)));\r\n" + 
+				"        newForm.appendChild(document.createElement('br'));\r\n" + 
+				"        newForm.appendChild(input);\r\n" + 
+				"        newForm.appendChild(document.createElement('br'));\r\n" + 
+				"    }\r\n" + 
+				"    var submit = document.createElement('input');\r\n" + 
+				"    submit.type = 'submit';\r\n" + 
+				"    submit.value = 'submti query';\r\n" + 
+				"    newForm.appendChild(submit);\r\n" + 
+				"}\r\n" + 
+				"</script>");
+		writer.print("<body>");
+		writer.print("<form>");
+		writer.print("How many children do you have ? <input type='text' action='' method='post'>");
+		writer.print("<input type='submit' value='Submit Query onclick='updatePage()'>");
+		writer.print("</form>");
+		writer.print("</body>");
+		writer.print("</html>");
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		PrintWriter writer = resp.getWriter();
+		writer.print("<html>");
+		writer.print("<body>");
+		String[] childrens = req.getParameterValues("children");
+		writer.print("<p>Your Children's name are</p>");
+		for (String children : childrens) {
+			writer.print("<p>" + children +"</p>");
+		}
+		writer.print("</body>");
+		writer.print("</html>");
+	}
+}

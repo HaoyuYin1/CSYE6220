@@ -1,0 +1,36 @@
+package part3;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class InputDisplayServlet extends HttpServlet  {
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String email = req.getParameter("email");
+		String password = req.getParameter("password");
+		String cPassword = req.getParameter("cpassword");
+		String picture = req.getParameter("picture");
+		String gender = req.getParameter("gender");
+		String country = req.getParameter("country");
+		String hobby = req.getParameter("hobby");
+		String address = req.getParameter("address");
+		PrintWriter writer = resp.getWriter();
+		writer.print("<html>");
+		writer.print("<body>");
+		writer.print("email: " + email + "<br>");
+		writer.print("passwrod: " + password + "<br>");
+		writer.print("confirm password: " + cPassword + "<br>");
+		writer.print("pricture: " + picture + "<br>");
+		writer.print("gender: " + gender + "<br>");
+		writer.print("country: " + country + "<br>");
+		writer.print("hobby: " + hobby + "<br>");
+		writer.print("address: " + address + "<br>");
+		writer.print("</body>");
+		writer.print("</html>");
+	}
+}
