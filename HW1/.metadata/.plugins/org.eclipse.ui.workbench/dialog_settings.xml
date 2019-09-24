@@ -12,4 +12,12 @@
 		<list key="textArray">
 		</list>
 	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="ImportExportAction">
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="459"/>
+		<item key="DIALOG_Y_ORIGIN" value="120"/>
+	</section>
 </section>

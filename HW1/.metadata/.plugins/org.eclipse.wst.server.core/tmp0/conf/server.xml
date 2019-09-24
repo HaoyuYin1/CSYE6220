@@ -144,16 +144,12 @@
         <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
         -->
 
-
-
         <!-- Access log processes all example.
              Documentation at: /docs/config/valve.html
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-        
-
-      <Context docBase="G:\Java\JavaEE\eclipse-workspace\CSYE6220\HW1\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="G:\Java\JavaEE\eclipse-workspace\CSYE6220\HW1\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HW1" path="/HW1" reloadable="true" source="org.eclipse.jst.jee.server:HW1"/></Host>
+      <Context docBase="/Users/hyyin/Java/JavaEE/CSYE6220/HW1/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/Users/hyyin/Java/JavaEE/CSYE6220/HW1/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/HW1" path="/HW1" reloadable="true" source="org.eclipse.jst.jee.server:HW1"/></Host>
     </Engine>
   </Service>
 </Server>
